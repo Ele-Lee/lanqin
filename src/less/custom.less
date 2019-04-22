@@ -1,0 +1,110 @@
+.title-box {
+    width: 100%;
+    height: 2.5rem;
+    position: relative;
+    .mt(1.45);
+    .title1 {
+        .pa();
+        .l(3.75);
+        // .t-t();
+        // 图片宽度
+        margin-left: -2.16rem / 2;
+        .b(-0.6rem);
+
+        .bg-contain('loading_title1');
+    }
+    .title2 {
+        .pa();
+        .l(3.75);
+        .t(-0.6rem);
+        // .t-t();
+        .mt(-0.45);
+        margin-left: -4.44rem / 2;
+        .bg-contain('loading_title2');
+    }
+}
+
+
+.gradient-line {
+    // width: 5.6rem;
+    height: 0.04rem;
+    background: linear-gradient(to right, #fff , transparent);
+}
+
+.mask-layer {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-left: 0.55rem;
+    height: 6rem;
+    width: 7.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #fff;
+
+    @db: 3.3; //距离底部的距离
+
+    .title {
+        .pa;
+        // .t(0.45);
+        .b(@db);
+        p {
+            .f-c;
+            .fs(0.4, 0.68);
+            font-weight: 700;
+            text-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+    }
+
+    .line--p {
+        .pa();
+        // .t(3.35);
+        .b(@db - 0.52);
+    }
+
+    .desc-box {
+        .pa;
+        // .t(3.9);
+        .b(@db - 1.64);
+        // text-indent: 2em;
+        opacity: 0;
+        padding-left: 0.4rem;
+
+        .dot--p {
+            .pa();
+            left: 0;
+        }
+        .desc-place {
+            .fs(0.24, 0.34);
+        }
+        .desc-info {
+            margin-top: 0.08rem;
+            width: 4.4rem;
+            .fs(0.18, 0.32);
+            // transform: scale(0.8);
+            // transform-origin: left;
+        }
+    }
+}
+
+.bg__left-arrow {
+    width: 3.7rem;
+    height: 8.73rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.bg__right-arrow {
+    width: 4.25rem;
+    height: 10.41rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.icon--logo {
+    display: inline-block;
+    .bg-contain('loading_logo');
+}

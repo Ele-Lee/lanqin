@@ -1,0 +1,137 @@
+.page() {
+    // position: fixed;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+._image-size(@url) {
+    width: unit(image-width(@url) / 100, rem);
+    height: unit(image-height(@url) / 100, rem);
+}
+
+.bg-contain (@img, @suffix: 'png', @noSize: false, @pathIndex: 1) {
+    // @path: extract(@paths, @pathIndex);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('~@/assets/img/@{img}.@{suffix}');
+    & when (@noSize = false) {
+        ._image-size('../assets/img/@{img}.@{suffix}');
+    }
+}
+
+.bg-cover (@img, @suffix: 'png', @noSize: false, @pathIndex: 1) {
+    // @path: extract(@paths, @pathIndex);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('~@/assets/img/@{img}.@{suffix}');
+    & when (@noSize = false) {
+        ._image-size('../assets/img/@{img}.@{suffix}');
+    }
+}
+
+.p-b(@b: 0, @noRight: 0) {
+    position: absolute;
+    bottom: @b;
+    left: 0;
+    & when (@noRight = 0) {
+        right: 0;
+    }
+}
+
+.p-t(@t: 0, @noRight: false) {
+    position: absolute;
+    top: @t;
+    left: 0;
+    & when (@noRight = false) {
+        right: 0;
+    }
+}
+
+.p-c(@l: 0, @t: 0, @r: 0, @b: 0) {
+    position: absolute;
+    bottom: @b;
+    left: @l;
+    right: @r;
+    top: @t;
+    margin: auto;
+}
+
+.test {
+    border: 2px solid goldenrod;
+}
+
+
+.adapter(@ix, @i6) {
+    @ix();
+    @r: ~'screen and (min-aspect-ratio: 375/667)';
+    @media @r {
+        @i6();
+    }
+}
+
+.mt(@t) {
+    margin-top: unit(@t, rem);
+}
+.pt(@t) {
+    padding-top: unit(@t, rem);
+}
+.l(@v: 0) {
+    & when (isunit(@v, '%')) {
+        left: @v;
+    }
+    & when not(isunit(@v, '%')) {
+        left: unit(@v, rem);
+    }
+}
+.b(@v: 0) {
+    & when (isunit(@v, '%')) {
+        bottom: @v;
+    }
+    & when not(isunit(@v, '%')) {
+        bottom: unit(@v, rem);
+    }
+}
+.r(@v: 0) {
+    & when (isunit(@v, '%')) {
+        right: @v;
+    }
+    & when not(isunit(@v, '%')) {
+        right: unit(@v, rem);
+    }
+}
+.t(@v: 0) {
+    & when (isunit(@v, '%')) {
+        top: @v;
+    }
+    & when not(isunit(@v, '%')) {
+        top: unit(@v, rem);
+    }
+}
+.t-t(@x: -50%, @y: 0) {
+    transform: translate3d(@x, @y, 0);
+}
+.fs(@v, @lh: false) {
+    font-size: unit(@v, rem);
+    & when (isnumber(@lh)) {
+        line-height: unit(@lh, rem);
+    }
+}
+.b-b {
+    box-sizing: border-box;
+}
+.c-w {
+    color: #fff;
+}
+.b-c {
+    background-color: #000;
+}
+.df {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
